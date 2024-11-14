@@ -3,6 +3,7 @@ const cors = require('cors')
 const crypto = require('node:crypto')
 const movies = require('./movies.json')
 const { validateMovie, validatePartialMovie } = require('./schemas/movies')
+const { appendFileSync } = require('node:fs')
 
 const app = express()
 
@@ -125,3 +126,7 @@ const PORT = process.env.PORT ?? 1234
 app.listen(PORT, () => {
     console.log(`server listening on port http://localhost:${PORT}`)
 })
+
+module.exports = {
+    app
+}
